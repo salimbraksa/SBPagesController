@@ -5,7 +5,8 @@ Pod::Spec.new do |s|
   s.summary      = "This is my amazing Swift CocoaPod!"
  
   s.description  = <<-DESC
-                    No description.
+                    Scroll multiple view controllers horizontally with the ability of tracking
+                    scroll's progress between pages.
                    DESC
  
   s.homepage = "https://github.com/salimbraksa/SBPagesController"
@@ -14,7 +15,7 @@ Pod::Spec.new do |s|
   s.author             = { "Braksa Salim" => "salim.braksa@gmail.com" }
   s.social_media_url   = "https://twitter.com/salimbraksa"
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/salimbraksa/SBPagesController", :tag => s.version }
+  s.source       = { :git => "https://github.com/salimbraksa/SBPagesController.git", :tag => s.version }
   s.source_files  = "SBPagesController/*.swift"
 
   s.dependency 'Cartography'
