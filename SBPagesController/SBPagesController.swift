@@ -184,7 +184,7 @@ public class SBPagesController: UIViewController, UIScrollViewDelegate, UIGestur
       
    }
    
-   func scrollToPage(forIndex index: Int, animated: Bool) {
+   public func scrollToPage(forIndex index: Int, animated: Bool) {
       
       // Update scrollView direction
       if index > currentIndex {
