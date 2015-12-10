@@ -9,7 +9,7 @@
 import UIKit
 import Cartography
 
-protocol SBPagesControllerDataSource: class {
+public protocol SBPagesControllerDataSource: class {
    
    func pagesSlider(viewControllerForIndex index: Int) -> UIViewController
    
@@ -17,7 +17,7 @@ protocol SBPagesControllerDataSource: class {
    
 }
 
-protocol SBPagesControllerDelegate: class {
+public protocol SBPagesControllerDelegate: class {
    
    func scrollingFromPageIndex(index: Int, toIndex: Int, progress: Double)
    
@@ -25,12 +25,12 @@ protocol SBPagesControllerDelegate: class {
    
 }
 
-class SBPagesController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
+public class SBPagesController: UIViewController, UIScrollViewDelegate, UIGestureRecognizerDelegate {
    
    // MARK: Properties
    
-   weak var dataSource: SBPagesControllerDataSource?
-   weak var delegate: SBPagesControllerDelegate?
+   public weak var dataSource: SBPagesControllerDataSource?
+   public weak var delegate: SBPagesControllerDelegate?
    
    private var views: [UIView] = []
    var scrollView: SBScrollView!
@@ -49,7 +49,7 @@ class SBPagesController: UIViewController, UIScrollViewDelegate, UIGestureRecogn
    
    // MARK: View Lifecycle
    
-   override func viewDidLoad() {
+   override public func viewDidLoad() {
       super.viewDidLoad()
       
       // Initialize & configure scrollView
@@ -109,7 +109,7 @@ class SBPagesController: UIViewController, UIScrollViewDelegate, UIGestureRecogn
       
    }
    
-   override func viewWillAppear(animated: Bool) {
+   override public func viewWillAppear(animated: Bool) {
       super.viewWillAppear(animated)
       
       // Don't the parent vc to adjust scrollView insets automatically
@@ -120,7 +120,7 @@ class SBPagesController: UIViewController, UIScrollViewDelegate, UIGestureRecogn
       
    }
    
-   override func viewWillLayoutSubviews() {
+   override public func viewWillLayoutSubviews() {
       super.viewWillLayoutSubviews()
       
       // Do not observe contentOffset while relayouting subviews
@@ -143,7 +143,7 @@ class SBPagesController: UIViewController, UIScrollViewDelegate, UIGestureRecogn
       
    }
    
-   override func viewDidLayoutSubviews() {
+   override public func viewDidLayoutSubviews() {
       super.viewDidLayoutSubviews()
       
       // Observe contentOffset after relayouting subviews
@@ -153,13 +153,13 @@ class SBPagesController: UIViewController, UIScrollViewDelegate, UIGestureRecogn
    
    // MARK: Gesture Recognize Delegate
    
-   func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+   public func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
       return true
    }
    
    // MARK: ScrollView Delegate
    
-   func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+   public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
       currentIndex = Int(scrollView.contentOffset.x / scrollView.bounds.width)
    }
    
